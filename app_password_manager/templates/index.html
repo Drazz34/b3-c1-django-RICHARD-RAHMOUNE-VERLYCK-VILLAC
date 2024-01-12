@@ -13,14 +13,20 @@
 
 <body>
 
-    <h1>Mes sites</h1>
-
-    <ul>
-        {% for site in sites %}
-        <li>{{ site.nom }}</li>
-        <li>{{ site.url }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Mes sites</h1>
+        <div class="liste">
+            <ul>
+                {% for site in sites %}
+                <li>{{ site.id }}</li>
+                <li>{{ site.nom }}</li>
+                <li>{{ site.url }}</li>
+                <li>{{ site.identifiant }}</li>
+                <li>{{ site.mot_de_passe }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
 </body>
 
