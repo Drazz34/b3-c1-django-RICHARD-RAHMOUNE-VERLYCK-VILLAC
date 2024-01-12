@@ -14,7 +14,7 @@ def ajouter_site(request):
             site = form.save(commit=False)
             site.user = request.user  # Associer le site à l'utilisateur connecté
             site.save()
-            return redirect('nom_de_la_vue_pour_afficher_le_carnet_adresses')
+            return redirect('index')
     else:
         form = SiteForm()
 
