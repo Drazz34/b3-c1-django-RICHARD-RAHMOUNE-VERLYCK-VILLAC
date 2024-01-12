@@ -8,7 +8,7 @@
 <body>
     <h1>Ajouter un nouveau site à votre carnet d'adresses</h1>
 
-     <form method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form.nom.label_tag }}
         {{ form.nom}}
