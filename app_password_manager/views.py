@@ -1,7 +1,11 @@
 
 from django.shortcuts import render, redirect
+from .models import Site
 from .forms import SiteForm
 
+def index(request):
+    sites = Site.objects.all()
+    return render(request, 'index.html', {'sites': sites})
 
 def ajouter_site(request):
     if request.method == 'POST':
