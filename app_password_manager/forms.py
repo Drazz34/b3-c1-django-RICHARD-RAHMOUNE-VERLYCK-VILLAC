@@ -7,4 +7,5 @@ class SiteForm(forms.ModelForm):
         fields = ['nom', 'url', 'identifiant', 'mot_de_passe']
         widgets = {
             'url': forms.URLInput(attrs={'placeholder': 'Entrez l\'URL du site'}),
+            'mot_de_passe': forms.PasswordInput
         }
