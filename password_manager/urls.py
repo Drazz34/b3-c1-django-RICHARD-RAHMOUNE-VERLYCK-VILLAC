@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('app_password_manager/', include('app_password_manager.urls')),
     path('admin/', admin.site.urls),
     path('', include('app_password_manager.urls')),
 ]
