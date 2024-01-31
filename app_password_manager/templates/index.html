@@ -13,7 +13,14 @@
         {% for site in sites %}
         <li>{{ site.nom }}</li>
         <li>{{ site.url }}</li>
+        <form action="{% url 'supprimer_site' site.id %}" method="post">
+            {% csrf_token %}
+                <input type="submit" value="Supprimer">
+        </form>
+
         {% endfor %}
+
+
     </ul>
     
 </body>
