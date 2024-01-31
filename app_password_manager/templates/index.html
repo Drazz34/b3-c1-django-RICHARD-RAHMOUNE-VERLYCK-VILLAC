@@ -25,12 +25,13 @@
                 <li><span>URL :</span> {{ site.url }}</li>
                 <li><span>Identifiant :</span> {{ site.identifiant }}</li>
                 <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
-
             </ul>
+            <form action="{% url 'supprimer_site' site.id %}" method="post">
+                {% csrf_token %}
+                    <input type="submit" value="Supprimer">
+            </form>
         </div>
         {% endfor %}
     </div>
-
 </body>
-
 </html>
