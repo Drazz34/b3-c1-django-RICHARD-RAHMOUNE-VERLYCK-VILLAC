@@ -13,25 +13,36 @@
 
 <body>
 
-    <div class="container">
-        <h1>Mes sites</h1>
-        {% for site in sites %}
-        <div class="liste">
-            <h3>Site n°{{ site.id }}</h3>
-            <ul>
-
-                <li><span>Id :</span> {{ site.id }}</li>
-                <li><span>Nom :</span> {{ site.nom }}</li>
-                <li><span>URL :</span> {{ site.url }}</li>
-                <li><span>Identifiant :</span> {{ site.identifiant }}</li>
-                <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
-            </ul>
-            <form action="{% url 'supprimer_site' site.id %}" method="post">
-                {% csrf_token %}
-                    <input type="submit" value="Supprimer">
-            </form>
-        </div>
-        {% endfor %}
+<div class="container">
+    <h1>Mes sites</h1>
+    <div id="importExport">
+            <form action="{% url 'export_passwords' %}" method="get">
+        <input type="submit" value="Exporter">
+    </form>
+    <form action="{% url 'import_csv' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="csv_file">
+        <input type="submit" value="Importer">
+    </form>
     </div>
+
+    {% for site in sites %}
+    <div class="liste">
+        <h3>Site n°{{ site.id }}</h3>
+        <ul>
+
+            <li><span>Id :</span> {{ site.id }}</li>
+            <li><span>Nom :</span> {{ site.nom }}</li>
+            <li><span>URL :</span> {{ site.url }}</li>
+            <li><span>Identifiant :</span> {{ site.identifiant }}</li>
+            <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
+        </ul>
+        <form action="{% url 'supprimer_site' site.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Supprimer">
+        </form>
+    </div>
+    {% endfor %}
+</div>
 </body>
 </html>
