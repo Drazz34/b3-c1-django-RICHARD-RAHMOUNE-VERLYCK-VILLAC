@@ -36,6 +36,9 @@ media
 .idea/**/gradle.xml
 .idea/**/libraries
 
+# .idea/
+.idea/
+
 # File-based project format
 *.iws
 
