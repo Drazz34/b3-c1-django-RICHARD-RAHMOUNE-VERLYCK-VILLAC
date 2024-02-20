@@ -20,5 +20,6 @@ class Migration(migrations.Migration):
                 ('identifiant', models.CharField(max_length=50)),
                 ('mot_de_passe', models.CharField(max_length=50)),
             ],
+            
         ),
     ]

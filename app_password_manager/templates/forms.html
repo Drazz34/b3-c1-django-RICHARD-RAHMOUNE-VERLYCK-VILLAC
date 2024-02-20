@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un nouveau site</title>
+</head>
+<body>
+    <h1>Ajouter un nouveau site à votre carnet d'adresses</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.nom.label_tag }}
+        {{ form.nom}}
+        <br><br>
+        {{ form.url.label_tag }}
+        {{ form.url }}
+        <br><br>
+        {{ form.identifiant.label_tag }}
+        {{ form.identifiant }}
+        <br><br>
+        {{ form.mot_de_passe.label_tag }}
+        {{ form.mot_de_passe }}
+        <br><br>
+        <button type="submit">Ajouter le site</button>
+    </form>
+</body>
+</html>
