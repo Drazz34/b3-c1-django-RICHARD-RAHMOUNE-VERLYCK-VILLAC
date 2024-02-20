@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b38cb2e4-7788-4688-a10c-45e6c9c2f556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="b38cb2e4-7788-4688-a10c-45e6c9c2f556" name="Changes" comment="Conflict resolve" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +29,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/blaze/Documents/CDA/EPSI/Django/b3-c1-django-RICHARD-RAHMOUNE-VERLYCK-VILLAC",
     "node.js.detected.package.eslint": "true",
@@ -63,9 +61,23 @@
       <workItem from="1708429221887" duration="47000" />
       <workItem from="1708429290368" duration="315000" />
     </task>
+    <task id="LOCAL-00001" summary="Conflict resolve">
+      <option name="closed" value="true" />
+      <created>1708439097340</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708439097340</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pull main" />
+    <MESSAGE value="Conflict resolve" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conflict resolve" />
   </component>
 </project>
