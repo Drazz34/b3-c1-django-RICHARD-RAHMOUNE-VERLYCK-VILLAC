@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un site</title>
+</head>
+<body>
+    <h1>Modifier un site de votre carnet d'adresses</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.nom.label_tag }}
+        {{ form.nom }}
+        <br><br>
+        {{ form.url.label_tag }}
+        {{ form.url }}
+        <br><br>
+        {{ form.identifiant.label_tag }}
+        {{ form.identifiant }}
+        <br><br>
+        {{ form.mot_de_passe.label_tag }}
+        {{ form.mot_de_passe }}
+        <button type="button" onclick="insertRandomPassword()">Générer un mot de passe aléatoire</button>
+        <br><br>
+        <button type="submit">Modifier le site</button>
+    </form>
+</body>
+
+<script>
+    function insertRandomPassword() {
+        let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        let password = "";
+        for (let i = 0; i < 15; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+        document.querySelector("#id_mot_de_passe").value = password;
+    }
+</script>
+
+</html>
