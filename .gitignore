@@ -5,9 +5,11 @@
 __pycache__
 db.sqlite3
 media
+app_password_manager/__pycache__/
+app_password_manager/migrations/__pycache__/
 
 # Backup files # 
-*.bak 
+*.bak
 
 # If you are using PyCharm # 
 # User-specific stuff
