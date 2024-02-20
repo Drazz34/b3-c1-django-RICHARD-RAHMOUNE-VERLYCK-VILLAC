@@ -57,8 +57,16 @@ ul li span {
     padding: 20px;
 }
 #importExport form input{
-    padding: 4px;
-    padding-bottom: 1px;
-    padding-top: 1px;
+    padding: 1px 4px 1px 4px;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.flex-space-around {
+    display: flex;
+    justify-content: space-around;
+}
