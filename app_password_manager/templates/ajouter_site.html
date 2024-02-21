@@ -30,6 +30,9 @@
                 {{ form.mot_de_passe }}
             </div>
             <div class="flex-center">
+                <button type="button" id="togglePassword" class="btn bg-black">Afficher le mot de passe</button>
+            </div>
+            <div class="flex-center">
                 <button type="button" onclick="insertRandomPassword()" class="btn bg-black">Générer un mot de passe aléatoire</button>
             </div>
             <div class="flex-center">
@@ -49,6 +52,16 @@
         }
         document.querySelector("#id_mot_de_passe").value = password;
     }
+
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('id_mot_de_passe');
+
+    togglePassword.addEventListener('click', function() {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.textContent = type === 'password' ? 'Afficher le mot de passe' : 'Masquer le mot de passe';
+    });
 </script>
+
 
 </html>
