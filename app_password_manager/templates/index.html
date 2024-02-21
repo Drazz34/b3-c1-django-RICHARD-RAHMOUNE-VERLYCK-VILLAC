@@ -77,7 +77,7 @@
             if (currentType === 'password') {
                 passwordDisplay.textContent = password;
                 passwordDisplay.setAttribute('data-type', 'text');
-                togglePasswordBtn.textContent = 'Masquer le mot de passe';
+                element.textContent = 'Masquer le mot de passe';
             } else {
                 let hiddenPassword = '';
                 for (let i = 0; i < password.length; i++) {
@@ -85,7 +85,7 @@
                 }
                 passwordDisplay.innerHTML = hiddenPassword;
                 passwordDisplay.setAttribute('data-type', 'password');
-                togglePasswordBtn.textContent = 'Afficher le mot de passe';
+                element.textContent = 'Afficher le mot de passe';
             }
         });
     })
