@@ -1,30 +1,42 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'app_password_manager/css/style.css' %}">
     <title>Ajouter un nouveau site</title>
 </head>
 <body>
     <h1>Ajouter un nouveau site à votre carnet d'adresses</h1>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.nom.label_tag }}
-        {{ form.nom}}
-        <br><br>
-        {{ form.url.label_tag }}
-        {{ form.url }}
-        <br><br>
-        {{ form.identifiant.label_tag }}
-        {{ form.identifiant }}
-        <br><br>
-        {{ form.mot_de_passe.label_tag }}
-        {{ form.mot_de_passe }}
-        <button type="button" onclick="insertRandomPassword()">Générer un mot de passe aléatoire</button>
-        <br><br>
-        <button type="submit">Ajouter le site</button>
-    </form>
+    <div class="flex-center">
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex-space-between">
+                {{ form.nom.label_tag }}
+                {{ form.nom}}
+            </div>
+            <div class="flex-space-between">
+                {{ form.url.label_tag }}
+                {{ form.url }}
+            </div>
+            <div class="flex-space-between">
+                {{ form.identifiant.label_tag }}
+                {{ form.identifiant }}
+            </div>
+            <div class="flex-space-between">
+                {{ form.mot_de_passe.label_tag }}
+                {{ form.mot_de_passe }}
+            </div>
+            <div class="flex-center">
+                <button type="button" onclick="insertRandomPassword()">Générer un mot de passe aléatoire</button>
+            </div>
+            <div class="flex-center">
+                <button type="submit">Ajouter le site</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 <script>

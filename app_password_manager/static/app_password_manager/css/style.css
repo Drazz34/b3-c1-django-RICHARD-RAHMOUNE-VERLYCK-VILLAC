@@ -46,9 +46,9 @@ ul li span {
 
 #importExport {
     padding: 1rem;
-        text-align: center;
+    text-align: center;
     background-color: black;
-        color: #FFF;
+    color: #FFF;
     display: flex;
     justify-content: center;
 }
@@ -69,4 +69,11 @@ ul li span {
 .flex-space-around {
     display: flex;
     justify-content: space-around;
+}
+
+.flex-space-between {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }

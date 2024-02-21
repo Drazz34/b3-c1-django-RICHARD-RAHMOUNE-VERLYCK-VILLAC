@@ -1,5 +1,3 @@
-
-
 import csv
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -21,7 +19,6 @@ def ajouter_site(request):
     if request.method == 'POST':
         form = SiteForm(request.POST)
         if form.is_valid():
-          
             site = form.save(commit=False)
             site.user = request.user  # Associer le site à l'utilisateur connecté
             site.save()
@@ -56,6 +53,7 @@ def supprimer_site(request, id):
     site.delete()
     return redirect('index')
 
+
 def export_passwords(request):
     sites = Site.objects.all()
     response = HttpResponse(content_type='text/csv')
@@ -68,6 +66,7 @@ def export_passwords(request):
 
     return response
 
+
 def import_csv(request):
     if request.method == 'POST' and request.FILES.get('csv_file'):
         csv_file = request.FILES['csv_file']
@@ -76,14 +75,14 @@ def import_csv(request):
             decoded_file = csv_file.read().decode('utf-8').splitlines()
             csv_reader = csv.reader(decoded_file)
             for row in csv_reader:
-
                 _, created = Site.objects.get_or_create(
                     nom=row[1],
                     url=row[2],
                     identifiant=row[3],
                     mot_de_passe=row[4]
                 )
-            return HttpResponse("CSV file imported successfully.")
+            messages.success(request, 'Le fichier CSV à bien été importé.')
+            return redirect("index")
         else:
             return HttpResponse("File is not a CSV.")
     return render(request, 'index.html')
