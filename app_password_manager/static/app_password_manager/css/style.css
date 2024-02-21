@@ -14,6 +14,10 @@ input[type="submit"]:hover, button[type="button"]:hover, button[type="submit"]:h
     cursor: pointer;
 }
 
+input[type="file"] {
+    width: 307px
+}
+
 body {
     font-family: 'Poppins', cursive, sans-serif;
     background-color: #fcf6c9;
