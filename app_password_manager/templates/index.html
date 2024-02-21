@@ -7,31 +7,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'app_password_manager/css/style.css' %}">
-</head>
-<title>Mes sites</title>
+    <title>Mes sites</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Mes sites</h1>
-        {% for site in sites %}
-        <div class="liste">
-            <h3>Site n°{{ site.id }}</h3>
-            <ul>
+<div class="container">
+    <h1>Mes sites</h1>
+    <div id="importExport">
+        <form action="{% url 'export_passwords' %}" method="get">
+            <input type="submit" value="Exporter">
+        </form>
+        <form action="{% url 'import_csv' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="csv_file">
+            <input type="submit" value="Importer">
+        </form>
+    </div>
+    <div class="flex-center">
+        <a href="{% url 'ajouter_site' %}">Ajouter un site</a>
+    </div>
 
-                <li><span>Id :</span> {{ site.id }}</li>
-                <li><span>Nom :</span> {{ site.nom }}</li>
-                <li><span>URL :</span> {{ site.url }}</li>
-                <li><span>Identifiant :</span> {{ site.identifiant }}</li>
-                <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
-            </ul>
+    {% for site in sites %}
+    <div class="liste">
+        <h3>Site n°{{ site.id }}</h3>
+        <ul>
+            <li><span>Id :</span> {{ site.id }}</li>
+            <li><span>Nom :</span> {{ site.nom }}</li>
+            <li><span>URL :</span> {{ site.url }}</li>
+            <li><span>Identifiant :</span> {{ site.identifiant }}</li>
+            <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
+        </ul>
+        <div class="flex-space-around">
+            <a href="{% url 'modifier_site' site.id %}">Modifier</a>
             <form action="{% url 'supprimer_site' site.id %}" method="post">
                 {% csrf_token %}
-                    <input type="submit" value="Supprimer">
+                <input type="submit" value="Supprimer">
             </form>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
+</div>
 </body>
+
 </html>

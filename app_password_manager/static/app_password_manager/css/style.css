@@ -43,3 +43,30 @@ li {
 ul li span {
     font-weight: bold;
 }
+
+#importExport {
+    padding: 1rem;
+        text-align: center;
+    background-color: black;
+        color: #FFF;
+    display: flex;
+    justify-content: center;
+}
+
+#importExport form {
+    padding: 20px;
+}
+#importExport form input{
+    padding: 1px 4px 1px 4px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.flex-space-around {
+    display: flex;
+    justify-content: space-around;
+}
