@@ -14,6 +14,7 @@
 
 <div class="container">
     <h1>Mes sites</h1>
+
     <div id="importExport">
         <form action="{% url 'export_passwords' %}" method="get">
             <input type="submit" value="Exporter" class="btn bg-brown">
@@ -24,6 +25,15 @@
             <input type="submit" value="Importer" class="btn bg-brown">
         </form>
     </div>
+
+    {% if messages %}
+        <ul class="messages flex-center">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <div class="flex-center">
         <a href="{% url 'ajouter_site' %}" class="btn bg-black">Ajouter un site</a>
     </div>
