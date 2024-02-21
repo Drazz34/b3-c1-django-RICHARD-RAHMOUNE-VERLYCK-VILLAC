@@ -74,7 +74,6 @@
             const passwordDisplay = event.target.previousElementSibling
             const password = passwords[event.target.previousElementSibling.previousElementSibling.id]
             const currentType = passwordDisplay.getAttribute('data-type');
-            console.log(currentType)
             if (currentType === 'password') {
                 passwordDisplay.textContent = password;
                 passwordDisplay.setAttribute('data-type', 'text');
