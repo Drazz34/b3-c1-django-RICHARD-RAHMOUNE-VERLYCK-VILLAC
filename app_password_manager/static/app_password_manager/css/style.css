@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+input[type="submit"], button[type="button"], button[type="submit"] {
     border: unset;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, button[type="button"]:hover, button[type="submit"]:hover {
     cursor: pointer;
 }
 
