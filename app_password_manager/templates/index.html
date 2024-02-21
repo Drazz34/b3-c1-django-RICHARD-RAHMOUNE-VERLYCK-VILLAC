@@ -50,7 +50,7 @@
         </ul>
         <div class="flex-space-around">
             <a href="{% url 'modifier_site' site.id %}" class="btn bg-black">Modifier</a>
-            <form action="{% url 'supprimer_site' site.id %}" method="post">
+            <form action="{% url 'supprimer_site' site.id %}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce site ? Cette action est irréversible.')">
                 {% csrf_token %}
                 <input type="submit" value="Supprimer" class="btn bg-black">
             </form>
