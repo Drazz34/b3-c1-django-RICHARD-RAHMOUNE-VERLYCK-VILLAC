@@ -46,7 +46,12 @@
             <li><span>Nom :</span> {{ site.nom }}</li>
             <li><span>URL :</span> {{ site.url }}</li>
             <li><span>Identifiant :</span> {{ site.identifiant }}</li>
-            <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
+            <li>
+                <span>Mot de passe :</span>
+                <span id="{{ site.id }}" style="display: none">{{ site.mot_de_passe }}</span>
+                <span data-type="password">{% for i in site.mot_de_passe %}*{% endfor %}</span>
+                <button type="button" class="btn bg-black ml-2rem togglePasswordBtn">Afficher le mot de passe</button>
+            </li>
         </ul>
         <div class="flex-space-around">
             <a href="{% url 'modifier_site' site.id %}" class="btn bg-black">Modifier</a>
@@ -59,5 +64,31 @@
     {% endfor %}
 </div>
 </body>
+
+<script>
+    const togglePasswordBtn = document.querySelectorAll('.togglePasswordBtn');
+    const passwords = JSON.parse('{{ passwords|escapejs }}')
+
+    togglePasswordBtn.forEach((element) => {
+        element.addEventListener('click', function(event) {
+            const passwordDisplay = event.target.previousElementSibling
+            const password = passwords[event.target.previousElementSibling.previousElementSibling.id]
+            const currentType = passwordDisplay.getAttribute('data-type');
+            if (currentType === 'password') {
+                passwordDisplay.textContent = password;
+                passwordDisplay.setAttribute('data-type', 'text');
+                togglePasswordBtn.textContent = 'Masquer le mot de passe';
+            } else {
+                let hiddenPassword = '';
+                for (let i = 0; i < password.length; i++) {
+                    hiddenPassword += '*'
+                }
+                passwordDisplay.innerHTML = hiddenPassword;
+                passwordDisplay.setAttribute('data-type', 'password');
+                togglePasswordBtn.textContent = 'Afficher le mot de passe';
+            }
+        });
+    })
+</script>
 
 </html>

@@ -1,15 +1,19 @@
 import csv
+import json
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-
 from .models import Site
 from .forms import SiteForm
 
 
 def index(request):
     sites = Site.objects.all()
-    return render(request, 'index.html', {'sites': sites})
+    passwords = {}
+    for site in sites:
+        passwords[site.id] = site.mot_de_passe
+    passwords = json.dumps(passwords)
+    return render(request, 'index.html', {'sites': sites, 'passwords': passwords})
 
 
 def ajouter_site(request):
