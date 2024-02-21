@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+input[type="submit"] {
+    border: unset;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
 body {
     font-family: 'Poppins', cursive, sans-serif;
     background-color: #fcf6c9;
@@ -76,4 +84,24 @@ ul li span {
     gap: 10px;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+
+.btn {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Poppins', cursive, sans-serif;
+}
+
+.bg-brown {
+    background-color: #fcf6c9;
+    color: #000;
+}
+
+.bg-black {
+    background-color: #000;
+    color: #FFF;
 }

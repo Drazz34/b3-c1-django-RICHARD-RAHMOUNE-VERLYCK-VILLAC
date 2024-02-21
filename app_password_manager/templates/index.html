@@ -16,16 +16,16 @@
     <h1>Mes sites</h1>
     <div id="importExport">
         <form action="{% url 'export_passwords' %}" method="get">
-            <input type="submit" value="Exporter">
+            <input type="submit" value="Exporter" class="btn bg-brown">
         </form>
         <form action="{% url 'import_csv' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="csv_file">
-            <input type="submit" value="Importer">
+            <input type="file" name="csv_file" class="btn bg-brown">
+            <input type="submit" value="Importer" class="btn bg-brown">
         </form>
     </div>
     <div class="flex-center">
-        <a href="{% url 'ajouter_site' %}">Ajouter un site</a>
+        <a href="{% url 'ajouter_site' %}" class="btn bg-black">Ajouter un site</a>
     </div>
 
     {% for site in sites %}
@@ -39,10 +39,10 @@
             <li><span>Mot de passe :</span> {{ site.mot_de_passe }}</li>
         </ul>
         <div class="flex-space-around">
-            <a href="{% url 'modifier_site' site.id %}">Modifier</a>
+            <a href="{% url 'modifier_site' site.id %}" class="btn bg-black">Modifier</a>
             <form action="{% url 'supprimer_site' site.id %}" method="post">
                 {% csrf_token %}
-                <input type="submit" value="Supprimer">
+                <input type="submit" value="Supprimer" class="btn bg-black">
             </form>
         </div>
     </div>
