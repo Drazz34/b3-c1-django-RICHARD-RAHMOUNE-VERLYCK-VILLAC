@@ -22,7 +22,7 @@ def ajouter_site(request):
             site = form.save(commit=False)
             site.user = request.user  # Associer le site à l'utilisateur connecté
             site.save()
-            messages.success(request, 'Le site a bien été ajouté.')
+            messages.success(request, 'Le site ' + site.url + ' a bien été ajouté au carnet.')
             return redirect('index')
     else:
         messages.error(request, 'Une erreur est survenue.')
@@ -40,7 +40,7 @@ def modifier_site(request, id):
         form = SiteForm(request.POST, instance=site)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Le site a bien été modifié.')
+            messages.success(request, 'Le site ' + site.url + ' a bien été modifié.')
             return redirect('index')
 
     else:
@@ -51,6 +51,7 @@ def modifier_site(request, id):
 def supprimer_site(request, id):
     site = get_object_or_404(Site, id=id)
     site.delete()
+    messages.success(request, 'Le site ' + site.url + ' a bien été supprimé du carnet.')
     return redirect('index')
 
 
